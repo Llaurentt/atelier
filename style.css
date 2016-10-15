@@ -1,10 +1,10 @@
 img {    /* pour que les images aient tous la meme taille*/
   height: 300px;
-  width: 300px;
+  width: 330px;
 }
 #galerie-menu { /* conteneur general*/
   height: 300px; /* de hauteur 300px*/
-  width: 360px; /* de largeur: largeur des images + largeur des (n-1) images réduites de 30px*/
+  width: 390px; /* de largeur: largeur des images + largeur des (n-1) images réduites de 30px*/
   margin: 1em auto;
   border: solid;
   border-radius: 5px;
@@ -14,7 +14,7 @@ img {    /* pour que les images aient tous la meme taille*/
   white-space: nowrap; /* pour garder toutes les images sur une seule ligne*/
   overflow: hidden; /* pour cacher ce qui déborde*/
 }
-#galerie-menu a {
+#galerie-menu a, #galerie-menu:hover a:focus {
   display: inline-block; /* les images sont mis sur une seule ligne (inconvenient espace résiduel entre les images)*/
   width: 30px; /* par defaut toutes les images sont de largeur 30px*/
   height: 300px;
@@ -22,12 +22,15 @@ img {    /* pour que les images aient tous la meme taille*/
   position: relative;
   z-index: 1; /* met les liens en avant plan*/
   vertical-align: top; /* pour que les line s'alignent horizontalement*/
+  transition: 2s; /*pour créer une ouverture fluide*/
+  transition-timing-function: cubic-bezier(0.00, 0.01, 0.00, 1.00);
 }
 #galerie-menu a:hover, #galerie-menu a:focus { /* quand survol souris ou avec Tab: image affiché entièrement*/
-  width: 300px;
+  width: 330px;
+  transition: 2s;
 }
 #galerie-menu a:first-child {  /* premier élément du menu*/
-  width: 300px;
+  width: 330px;
   position: absolute; /* premiere image toujours visible par défaut*/
   top: 0;
   left: 0;
@@ -37,7 +40,7 @@ img {    /* pour que les images aient tous la meme taille*/
   content: attr(title);  /*permet de placer du texte ou des images dans la boite virtuelle, ici attribut title des liens*/
   text-align: center;
   height: 30px;
-  width: 300px;
+  width: 330px;
   position: absolute; /* en bas(bottom) et à gauche(left)*/
   bottom: 0;
   left: 0;
@@ -45,8 +48,10 @@ img {    /* pour que les images aient tous la meme taille*/
   border: 1px solid gray;
   padding-right: 100px;
   font-size: 30px;
-  color: white;
+  color: black;
   line-height: 22px;
+  transform: rotate(-90deg);
+  transform-origin: 17px;
   -moz-transform: rotate(-90deg);
   -moz-transform-origin: 17px;
   -ms-transform: rotate(-90deg);
